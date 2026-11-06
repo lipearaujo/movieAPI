@@ -2,6 +2,10 @@
 
 A movie and TV series discovery application inspired by streaming platforms such as Netflix. The project uses React to build a dynamic catalog interface and integrates with **The Movie Database (TMDb) API** to retrieve movie and TV show information.
 
+## Live Demo
+
+- **Application:** [MovieAPI](https://movie-api-nine-wheat.vercel.app/)
+
 ## Features
 
 - **Dynamic movie catalog:** Displays movies and TV shows organized into different categories.
