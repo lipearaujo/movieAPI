@@ -1,70 +1,128 @@
-# Getting Started with Create React App
+# Movie API – Streaming Platform UI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A movie and TV series discovery application inspired by streaming platforms such as Netflix. The project uses React to build a dynamic catalog interface and integrates with **The Movie Database (TMDb) API** to retrieve movie and TV show information.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Dynamic movie catalog:** Displays movies and TV shows organized into different categories.
+- **Featured title:** Selects a title from the Netflix Originals category to display in the main featured section.
+- **Multiple content categories:**
+  - Now Playing
+  - Netflix Originals
+  - Trending
+  - Popular Movies
+  - Comedy
+  - Animation
+  - Horror
+  - Action and Adventure
+- **Movie and TV show information:** Supports fetching detailed information using the corresponding TMDb endpoints.
+- **Dynamic navigation bar:** Changes its appearance based on the page scroll position.
+- **Responsive visual experience:** A dark streaming-platform-inspired interface.
 
-### `npm start`
+## Technologies
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React 18
+- JavaScript
+- CSS3
+- Axios
+- The Movie Database (TMDb) API
+- Create React App
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Architecture
 
-### `npm test`
+The application separates API communication from the main UI components.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- `App.jsx`: Main application component, responsible for loading catalog data, managing application state, selecting the featured title, and rendering content sections.
+- `services/tmdbApi.js`: Handles requests to TMDb and organizes the catalog categories.
+- `services/tmdAxios.js`: Configures the Axios instance and API base URL.
+- `components/`: Contains the reusable interface components, including the header, featured section, and movie rows.
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js
+- npm
+- A TMDb API key
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. Clone the repository:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   git clone https://github.com/lipearaujo/movieAPI.git
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Navigate to the project directory:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```bash
+   cd movieAPI
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Install dependencies:
 
-## Learn More
+   ```bash
+   npm install
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. Configure your TMDb API key.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   Create a `.env` file in the project root:
 
-### Code Splitting
+   ```env
+   REACT_APP_TMDB_API_KEY=your_tmdb_api_key
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   Make sure the API service reads the key from this environment variable rather than keeping it directly in the source code.
 
-### Analyzing the Bundle Size
+5. Start the development server:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   ```bash
+   npm start
+   ```
 
-### Making a Progressive Web App
+6. Open [http://localhost:3000](http://localhost:3000).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## API Integration
 
-### Advanced Configuration
+This project uses the [TMDb API](https://developer.themoviedb.org/docs) to retrieve movie and TV show data.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The API service organizes requests into different categories, using endpoints such as:
 
-### Deployment
+- `/movie/now_playing`
+- `/discover/tv`
+- `/trending/all/week`
+- `/movie/popular`
+- `/discover/movie`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Axios is used to centralize HTTP communication and simplify asynchronous data retrieval.
 
-### `npm run build` fails to minify
+## What I Learned
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Through this project, I practiced:
+
+- Building reusable React components.
+- Managing component state with `useState`.
+- Handling side effects and asynchronous requests with `useEffect`.
+- Integrating a third-party REST API using Axios.
+- Organizing API communication into a dedicated service layer.
+- Working with different API endpoints and response structures.
+- Managing browser events and cleaning up event listeners.
+- Building a dynamic interface inspired by real-world streaming platforms.
+
+## Future Improvements
+
+- Add loading and error states for API requests.
+- Improve API key management through environment variables.
+- Add search functionality.
+- Implement movie and TV show detail pages.
+- Add pagination or horizontal carousel controls.
+- Improve accessibility and responsive behavior.
+- Migrate the project to TypeScript.
+- Add automated tests.
+
+## Author
+
+**Filipe Araujo**
+
+[GitHub](https://github.com/lipearaujo)
